@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Optional: Add any custom global styles */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #fdfaf6; /* Match your hero background */
+}
+
+/* Optional: Anchor styling if not using Tailwind classes */
+a {
+  text-decoration: none;
+}
+
