@@ -7,9 +7,11 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 
+
 function App() {
   return (
     <>
+    <div className="font-body text-text bg-background">
       <Navbar />
       <Hero />
       <About />
@@ -17,6 +19,7 @@ function App() {
       <Experience />
       <Contact />
       <Footer />
+    </div>
     </>
   )
 }
