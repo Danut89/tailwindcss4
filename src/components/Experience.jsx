@@ -1,53 +1,101 @@
 import React from 'react';
 
-const experiences = [
-  {
-    role: 'Front-End Developer',
-    company: 'TechCo Inc.',
-    period: '2022 – Present',
-    description: [
-      'Developed responsive React interfaces with Tailwind CSS.',
-      'Collaborated with UX team to improve usability.',
-      'Built reusable component libraries.'
-    ],
-  },
-  {
-    role: 'Web Developer Intern',
-    company: 'StartupX',
-    period: '2021 – 2022',
-    description: [
-      'Created landing pages and dashboards with HTML/CSS/JS.',
-      'Worked closely with backend developers on API integration.'
-    ],
-  }
-];
+const experienceData = {
+  education: [
+    {
+      title: 'Code Institute',
+      role: 'Full-Stack Web Development Diploma',
+      description: 'Currently pursuing an intensive full-stack program covering HTML, CSS, JavaScript, Python, Django, and SQL.',
+      date: 'April 2024 – May 2025',
+    },
+    {
+      title: 'Udemy',
+      role: 'Self-Taught Web Development & Programming',
+      description: 'Completed courses on HTML, CSS, JavaScript, and Python, strengthening my freelance work.',
+      date: '2023 – August 2024',
+    },
+  ],
+  experience: [
+    {
+      title: 'Software Engineer',
+      role: 'Freelance Developer',
+      description: 'Built and maintained custom web applications for private clients, tailoring solutions to their needs.',
+      date: 'Jul 2023 – Jul 2024',
+    },
+    {
+      title: 'Software Engineer',
+      role: 'Hackathon Collaborator',
+      description: 'Participated in multiple hackathons to build innovative apps in high-pressure, fast-paced environments.',
+      date: 'May 2024 – Aug 2024',
+    },
+  ],
+};
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-white py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-10 text-center">Experience</h2>
-
-        <div className="space-y-10">
-          {experiences.map((exp, index) => (
-            <div key={index}>
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                <h3 className="text-xl font-semibold text-gray-700">
-                  {exp.role} <span className="text-indigo-600">@ {exp.company}</span>
-                </h3>
-                <span className="text-sm text-gray-500">{exp.period}</span>
-              </div>
-
-              <ul className="list-disc list-inside text-gray-600 text-sm space-y-1 pl-4">
-                {exp.description.map((line, i) => (
-                  <li key={i}>{line}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+    <section className="py-20 px-6 bg-gray-50 text-text font-body" id="experience">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+    
+    {/* Education */}
+    <div>
+      <h2 className="text-3xl font-heading text-primary font-bold mb-8">Education</h2>
+      <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-4 before:w-px before:bg-primary/20">
+        {[
+          {
+            title: 'Code Institute',
+            subtitle: 'Full-Stack Web Development Diploma',
+            description: 'Currently pursuing an intensive full-stack program covering HTML, CSS, JavaScript, Python, Django, and SQL.',
+            date: 'Apr 2024 – May 2025'
+          },
+          {
+            title: 'Udemy',
+            subtitle: 'Self-Taught Web Development & Programming',
+            description: 'Completed courses on HTML, CSS, JavaScript, and Python, strengthening my freelance work.',
+            date: '2023 – August 2024'
+          }
+        ].map((item, i) => (
+          <div key={i} className="pl-10 relative">
+            <span className="absolute left-0 top-1.5 w-3 h-3 bg-accent rounded-full ring-2 ring-white shadow-md"></span>
+            <h3 className="text-lg font-semibold">{item.title}</h3>
+            <p className="italic text-sm text-gray-600 mb-1">{item.subtitle}</p>
+            <p className="text-sm text-gray-700">{item.description}</p>
+            <p className="text-xs text-gray-400 mt-1">{item.date}</p>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
+
+    {/* Experience */}
+    <div>
+      <h2 className="text-3xl font-heading text-primary font-bold mb-8">Experience</h2>
+      <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-4 before:w-px before:bg-primary/20">
+        {[
+          {
+            title: 'Software Engineer',
+            subtitle: 'Freelance Developer',
+            description: 'Built and maintained custom web applications for private clients, tailoring solutions to their needs.',
+            date: 'Jul 2023 – Jul 2024'
+          },
+          {
+            title: 'Software Engineer',
+            subtitle: 'Hackathon Collaborator',
+            description: 'Participated in multiple hackathons to build innovative apps in high-pressure, fast-paced environments.',
+            date: 'May 2024 – Aug 2024'
+          }
+        ].map((item, i) => (
+          <div key={i} className="pl-10 relative">
+            <span className="absolute left-0 top-1.5 w-3 h-3 bg-accent rounded-full ring-2 ring-white shadow-md"></span>
+            <h3 className="text-lg font-semibold">{item.title}</h3>
+            <p className="italic text-sm text-gray-600 mb-1">{item.subtitle}</p>
+            <p className="text-sm text-gray-700">{item.description}</p>
+            <p className="text-xs text-gray-400 mt-1">{item.date}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
   );
 };
 
