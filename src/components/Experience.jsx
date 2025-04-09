@@ -1,25 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const timelineItem = (item, i) => (
-  <motion.div
-    key={i}
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: i * 0.1 }}
-    viewport={{ once: true }}
-    className="pl-10 relative"
-  >
-    <span className="absolute left-0 top-1.5 w-3 h-3 bg-secondary rounded-full ring-2 ring-white shadow-md"></span>
-    <h3 className="text-lg font-semibold text-text">{item.title}</h3>
-    <p className="italic text-sm text-muted mb-1">{item.subtitle}</p>
-    <p className="text-sm text-muted">{item.description}</p>
-    <p className="text-xs text-gray-400 mt-1">{item.date}</p>
-  </motion.div>
-);
-
-const Experience = () => {
-  const education = [
+const data = {
+  education: [
     {
       title: 'Code Institute',
       subtitle: 'Full-Stack Web Development Diploma',
@@ -32,9 +15,8 @@ const Experience = () => {
       description: 'Completed courses on HTML, CSS, JavaScript, and Python, strengthening my freelance work.',
       date: '2023 – August 2024',
     },
-  ];
-
-  const experience = [
+  ],
+  experience: [
     {
       title: 'Software Engineer',
       subtitle: 'Freelance Developer',
@@ -47,24 +29,61 @@ const Experience = () => {
       description: 'Built innovative apps in high-pressure hackathons using modern dev stacks.',
       date: 'May 2024 – Aug 2024',
     },
-  ];
+  ],
+};
 
+const cardMotion = {
+  hidden: { opacity: 0, y: 30 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: 'easeOut' },
+  }),
+};
+
+const TimelineCard = ({ entry, i }) => (
+  <motion.div
+    variants={cardMotion}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    custom={i}
+    className="bg-white/5 backdrop-blur-md border border-border rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+  >
+    <div className="flex items-start gap-3">
+      <div className="w-3 h-3 mt-1 rounded-full bg-secondary shadow-md ring-2 ring-white"></div>
+      <div>
+        <h3 className="text-lg font-semibold text-text">{entry.title}</h3>
+        <p className="text-sm italic text-muted mb-2">{entry.subtitle}</p>
+        <p className="text-sm text-muted">{entry.description}</p>
+        <p className="text-xs text-gray-400 mt-3">{entry.date}</p>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const Experience = () => {
   return (
     <section id="experience" className="bg-background py-24 px-6 text-text font-body">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto space-y-16">
+        
         {/* Education */}
         <div>
-          <h2 className="text-3xl font-heading font-bold text-primary mb-8">Education</h2>
-          <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-4 before:w-px before:bg-border">
-            {education.map(timelineItem)}
+          <h2 className="text-3xl font-heading font-bold text-primary mb-10">Education</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {data.education.map((item, i) => (
+              <TimelineCard key={i} entry={item} i={i} />
+            ))}
           </div>
         </div>
 
         {/* Experience */}
         <div>
-          <h2 className="text-3xl font-heading font-bold text-primary mb-8">Experience</h2>
-          <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-4 before:w-px before:bg-border">
-            {experience.map(timelineItem)}
+          <h2 className="text-3xl font-heading font-bold text-primary mb-10">Experience</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {data.experience.map((item, i) => (
+              <TimelineCard key={i} entry={item} i={i} />
+            ))}
           </div>
         </div>
       </div>
