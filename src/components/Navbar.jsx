@@ -4,25 +4,27 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const links = ['about', 'projects', 'experience', 'contact'];
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="bg-background sticky top-0 z-50 border-b border-border shadow-sm backdrop-blur-md">
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo / Name */}
-        <div className="text-xl sm:text-2xl font-heading font-semibold text-primary tracking-tight">
-          Danut <span className="text-accent">Grigore</span>
-        </div>
+        <a href="#" className="text-2xl font-heading font-bold text-primary tracking-tight">
+          Danut <span className="text-secondary">Grigore</span>
+        </a>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex gap-8 text-text font-body text-sm">
-          {['about', 'projects', 'experience', 'contact'].map((section) => (
-            <li key={section}>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex items-center gap-8 text-sm font-body text-text">
+          {links.map((link) => (
+            <li key={link}>
               <a
-                href={`#${section}`}
-                className="relative hover:text-primary transition-colors duration-200"
+                href={`#${link}`}
+                className="relative hover:text-primary transition duration-200"
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 hover:w-full" />
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-primary transition-all duration-300 hover:w-full" />
               </a>
             </li>
           ))}
@@ -44,17 +46,17 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Links */}
+      {/* Mobile Nav */}
       {isOpen && (
-        <ul className="md:hidden px-6 py-4 bg-white shadow-md rounded-b-xl space-y-3 text-text font-body text-base animate-fadeIn">
-          {['about', 'projects', 'experience', 'contact'].map((section) => (
-            <li key={section}>
+        <ul className="md:hidden px-6 py-4 bg-background border-t border-border space-y-4 text-base font-body text-text animate-fadeIn">
+          {links.map((link) => (
+            <li key={link}>
               <a
-                href={`#${section}`}
+                href={`#${link}`}
                 onClick={toggleMenu}
-                className="block py-1 hover:text-primary transition-colors"
+                className="block hover:text-primary transition-colors duration-200"
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {link.charAt(0).toUpperCase() + link.slice(1)}
               </a>
             </li>
           ))}
@@ -65,4 +67,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
