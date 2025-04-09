@@ -3,16 +3,17 @@
 
 @theme {
   /* 🌈 Font Families */
-  --font-heading: 'Sora', sans-serif;
+  --font-heading: 'IBM Plex Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
-  /* 🎨 Refined Color Palette: Tech Elegance */
-  --color-background: #F9FAFB;     /* Clean soft white */
-  --color-text: #1F2937;           /* Slate 800 for primary text */
-  --color-muted: #6B7280;          /* Gray 500 for secondary text */
-  --color-primary: #6366F1;        /* Indigo 500 for actions, links */
-  --color-secondary: #10B981;      /* Emerald 500 for highlights */
-  --color-border: #E5E7EB;         /* Light gray borders/dividers */
+  /* 🎨 Refined Color Palette: Sleek Dark Elegance */
+  --color-background: #0F172A;     /* Deep Slate-900 */
+  --color-text: #F8FAFC;           /* Slate-50 – high contrast text */
+  --color-muted: #94A3B8;          /* Slate-400 – subtle muted text */
+  --color-primary: #38BDF8;        /* Sky-400 – eye-catching primary */
+  --color-secondary: #FACC15;      /* Yellow-400 – playful contrast */
+  --color-border: #1E293B;         /* Slate-800 – subtle section separation */
+  --color-danger: #EF4444;         /* Red-500 – for error/danger states **/
   --color-danger: #EF4444;         /* Optional red for alerts */
 }
 
