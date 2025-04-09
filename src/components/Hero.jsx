@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import profileImage from '../assets/profile5.png';
+
 
 const Hero = () => {
   return (
@@ -50,7 +52,7 @@ const Hero = () => {
         >
         <div className="relative w-72 h-72 bg-background/20 backdrop-blur-md rounded-2xl shadow-xl p-2 border border-secondary/30">
           <img
-            src="/src/assets/profile5.png"
+            src={profileImage}
             alt="Danut Grigore"
             className="w-72 h-72 object-contain rounded-2xl border border-secondary/60 shadow-lg p-1 bg-background "
           />
