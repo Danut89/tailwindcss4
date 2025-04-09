@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const groupedSkills = {
-  Frontend: [
+const skills = {
+  frontend: [
     { name: 'HTML', color: 'bg-orange-50 text-orange-700' },
     { name: 'CSS', color: 'bg-blue-50 text-blue-700' },
     { name: 'JavaScript', color: 'bg-yellow-50 text-yellow-800' },
@@ -10,12 +10,12 @@ const groupedSkills = {
     { name: 'React', color: 'bg-cyan-50 text-cyan-700' },
     { name: 'Tailwind CSS', color: 'bg-teal-50 text-teal-700' },
   ],
-  Backend: [
+  backend: [
     { name: 'Node.js', color: 'bg-lime-50 text-lime-700' },
     { name: 'Express', color: 'bg-zinc-50 text-zinc-700' },
     { name: 'MongoDB', color: 'bg-green-50 text-green-700' },
   ],
-  Tools: [
+  tools: [
     { name: 'Git', color: 'bg-pink-50 text-pink-700' },
     { name: 'Vite', color: 'bg-purple-50 text-purple-700' },
   ],
@@ -24,27 +24,25 @@ const groupedSkills = {
 const Skills = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="bg-white/10 backdrop-blur-md border border-secondary/20 rounded-2xl p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out w-full"
+      className="rounded-2xl p-6 border border-secondary/20 backdrop-blur-md bg-white/5 shadow-lg w-full max-w-2xl mx-auto"
     >
-      <h3 className="text-lg font-heading font-semibold text-secondary mb-6 pt-1">
+      <h3 className="text-lg font-heading font-semibold text-secondary mb-4">
         Tech Stack
       </h3>
 
       <div className="space-y-6">
-        {Object.entries(groupedSkills).map(([group, skills]) => (
+        {Object.entries(skills).map(([group, tags]) => (
           <div key={group}>
-            <h4 className="text-sm font-semibold uppercase text-muted mb-2">
-              {group}
-            </h4>
-            <div className="flex flex-wrap gap-2 justify-start">
-              {skills.map((skill, index) => (
+            <p className="text-sm font-bold text-muted uppercase mb-2 tracking-wide">{group}</p>
+            <div className="flex flex-wrap gap-3">
+              {tags.map((skill, i) => (
                 <span
-                  key={index}
-                  className={`px-3 py-1.5 text-sm rounded-full font-medium font-body transition-all duration-200 ${skill.color} hover:scale-105 hover:shadow-md`}
+                  key={i}
+                  className={`px-3 py-1.5 text-sm rounded-xl font-medium font-body transition-all duration-200 ${skill.color} hover:scale-105 hover:shadow-sm`}
                 >
                   {skill.name}
                 </span>
@@ -58,5 +56,6 @@ const Skills = () => {
 };
 
 export default Skills;
+
 
 

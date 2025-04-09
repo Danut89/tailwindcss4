@@ -1,35 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import project1Img from '../assets/project-images/project1.png';
+import project2Img from '../assets/project-images/project2.png';
+import project3Img from '../assets/project-images/project3.png';
+
 
 const projects = [
   {
     title: 'Portfolio Website',
     description: 'A modern developer portfolio built with React and Tailwind CSS.',
     impact: 'Used by multiple devs as inspiration for their portfolios.',
-    image: '/src/assets/project-images/portfolio.png',
+    image: project1Img,
     tags: ['React', 'Tailwind', 'Vite'],
-    demo: '#',
-    code: '#',
+    demo: 'https://danut89.github.io/ProjectMilestone1-Vegan-Bliss/',
+    code: 'https://github.com/Danut89/ProjectMilestone1-Vegan-Bliss',
   },
   {
     title: 'E-Commerce Dashboard',
     description: 'Admin dashboard with chart visualizations and CRUD features.',
     impact: 'Helps businesses visualize sales and manage inventory.',
-    image: '/src/assets/project-images/dashboard.png',
+    image: project2Img,
     tags: ['React', 'Chart.js', 'MongoDB'],
-    demo: '#',
-    code: '#',
+    demo: 'https://battlecity-5c42a227b130.herokuapp.com/',
+    code: 'https://github.com/Danut89/Project-Battle-City',
   },
   {
     title: 'Blog Platform',
     description: 'Full-stack blog app with markdown support and user auth.',
     impact: 'Built with full user authentication and markdown parsing.',
-    image: '/src/assets/project-images/blog.png',
+    image: project3Img,
     tags: ['Node.js', 'Express', 'MongoDB'],
-    demo: '#',
-    code: '#',
+    demo: 'https://danut89.github.io/Project-Milestone-2-Snake/',
+    code: 'https://github.com/Danut89/Project-Milestone-2-Snake',
   },
 ];
+
 
 const techColors = {
   React: 'bg-cyan-50 text-cyan-700',
@@ -55,16 +60,16 @@ const Projects = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
+              whileTap={{ scale: 0.98 }}
               className="bg-white/5 backdrop-blur-md border border-border rounded-2xl shadow-md hover:shadow-xl transition duration-300 flex flex-col overflow-hidden"
             >
               {/* Image Section */}
               <div className="relative p-4 pb-0">
                 <div className="rounded-xl overflow-hidden shadow-md">
                   <img
-                    src="/src/assets/project-images/google-pixelbook-mockup (1).png"
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
@@ -88,7 +93,7 @@ const Projects = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: idx * 0.1 }}
-                      className={`px-3 py-1.5 text-xs rounded-full font-medium ${techColors[tag] || 'bg-gray-100 text-gray-700'} transition`}
+                      className={`px-3 py-1.5 text-xs font-medium rounded-xl shadow-sm ${techColors[tag] || 'bg-gray-100 text-gray-700'} transition`}
                     >
                       {tag}
                     </motion.span>
@@ -97,20 +102,26 @@ const Projects = () => {
 
                 {/* Buttons */}
                 <div className="mt-auto flex gap-3">
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
                     href={project.demo}
-                    className="bg-primary text-white text-sm px-4 py-2 rounded-full hover:bg-primary/90 transition"
-                    target="_blank" rel="noreferrer"
+                    className="bg-primary text-white text-sm px-5 py-2 rounded-xl font-medium shadow-md hover:bg-primary/90 transition"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Live Demo
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
                     href={project.code}
-                    className="border border-primary text-primary text-sm px-4 py-2 rounded-full hover:bg-primary/10 transition"
-                    target="_blank" rel="noreferrer"
+                    className="border border-primary text-primary text-sm px-5 py-2 rounded-xl font-medium hover:bg-primary/10 transition"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     GitHub
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

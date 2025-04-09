@@ -49,10 +49,11 @@ const Contact = () => {
 
           {/* Button */}
           <motion.button
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             type="submit"
-            className="bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary/90 transition text-center"
+            aria-label="Send contact message"
+            className="bg-primary text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-primary/90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2"
           >
             Send Message
           </motion.button>
