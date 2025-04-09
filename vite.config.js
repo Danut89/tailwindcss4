@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/your-repo-name/', // 👈 IMPORTANT: replace this!
+  base: '/tailwindcss4/', 
   plugins: [
     tailwindcss(),
     react()
