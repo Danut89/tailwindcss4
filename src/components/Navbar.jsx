@@ -13,9 +13,9 @@ const Navbar = () => {
         {/* 🔷 Logo / Name */}
         <a
           href="#"
-          className="text-xl sm:text-2xl font-heading font-bold tracking-tight text-primary-blue hover:opacity-90 transition"
+          className="text-xl sm:text-3xl font-heading font-bold tracking-tight text-primary hover:opacity-90 transition"
         >
-          Danut <span className="text-accent">Grigore</span>
+          D <span className="text-accent">G</span>
         </a>
 
         {/* 🖥 Desktop Navigation */}

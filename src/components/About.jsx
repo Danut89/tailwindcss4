@@ -4,7 +4,7 @@ import Skills from './Skills';
 
 const About = () => {
   return (
-    <section className="bg-background text-text px-6 md:px-12 lg:px-20 py-24 font-body">
+    <section id="about" className="bg-background text-text px-6 md:px-12 lg:px-20 py-24 font-body">
   <div className="max-w-6xl mx-auto">
 
    {/* 🔹 About Section Title */}
