@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+
+/* Define custom properties using @theme block */
+@theme {
+  /* 🎨 Custom Font Stack */
+  --font-heading: 'IBM Plex Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* 🌈 Color Palette from Your Screenshot */
+  --color-primary: #00C6FF;       /* Headers, highlights */
+  --color-deep: #0072FF;          /* Buttons, links */
+  --color-accent: #FF7A18;        /* CTAs, hover */
+  --color-background: #121212;    /* Base background */
+  --color-glass: #1E1E1E88;       /* Modals, blur layers */
+  --color-text: #EAEAEA;          /* Headings, content */
+  --color-muted: #888888;         /* Secondary text */
+  --color-success: #00C48C;       /* Status, badges */
+  --color-warning: #FFD166;       /* Highlights, alerts */
+  --color-surface-alt: #1A1A1A; /* Alternative background */
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+
+
+  
+  

@@ -14,7 +14,8 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold leading-tight tracking-tight text-primary">
-            Hi, I’m <span className="text-secondary">Danut Grigore</span>
+            Hello,<br />
+            I’m <span className="text-accent">Danut Grigore</span>
           </h1>
 
           <p className="mt-6 text-lg text-muted max-w-xl leading-relaxed">
@@ -29,18 +30,18 @@ const Hero = () => {
               whileTap={{ scale: 0.97 }}
               href="#projects"
               aria-label="View my projects"
-              className="bg-primary text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 transform shadow-md hover:brightness-110 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2"
+              className="bg-deep  text-white text-sm sm:text-base px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-primary hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2"
             >
-              View Projects
+              🌐 View Projects
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               href="#contact"
               aria-label="Contact me"
-              className="border-2 border-primary text-primary px-6 py-3 rounded-xl font-medium transition-all duration-200 transform hover:bg-primary/10 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+              className="border-2 border-primary text-primary text-sm sm:text-base px-6 py-3 rounded-xl font-semibold hover:bg-primary/10 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
             >
-              Contact Me
+              📬 Contact Me
             </motion.a>
           </div>
         </motion.div>
@@ -53,7 +54,7 @@ const Hero = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-16 md:mt-0"
         >
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 bg-background/20 backdrop-blur-md rounded-2xl shadow-xl p-2 border border-secondary/30">
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 bg-glass backdrop-blur-md rounded-2xl shadow-xl p-2 border border-secondary/30">
             <motion.img
               src={profileImage}
               alt="Danut Grigore"
@@ -72,7 +73,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, repeat: Infinity, repeatType: 'reverse' }}
-          className="text-muted text-sm"
+          className="text-muted text-sm tracking-wide"
         >
           ↓ Scroll to explore
         </motion.div>

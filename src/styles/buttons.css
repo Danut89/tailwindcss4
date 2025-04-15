@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Define custom properties using @theme block */
+@theme {
+    /* 🎨 Custom Font Stack */
+    --font-heading: 'IBM Plex Sans', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  
+    /* 🌈 Color Palette from Your Screenshot */
+    --color-primary: #00C6FF;       /* Headers, highlights */
+    --color-deep: #0072FF;          /* Buttons, links */
+    --color-accent: #FF7A18;        /* CTAs, hover */
+    --color-background: #121212;    /* Base background */
+    --color-glass: #1E1E1E88;       /* Modals, blur layers */
+    --color-text: #EAEAEA;          /* Headings, content */
+    --color-muted: #888888;         /* Secondary text */
+    --color-success: #00C48C;       /* Status, badges */
+    --color-warning: #FFD166;       /* Highlights, alerts */
+  }
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg px-5 py-2 text-base tracking-tight shadow-sm;
+  }
+
+  .btn-primary {
+    background-color: var(--color-deep);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-accent);
+    color: black;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-warning);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .btn-glass {
+    background-color: var(--color-glass);
+    backdrop-filter: blur(12px);
+    color: var(--color-text-light);
+  }
+
+  .btn-glass:hover {
+    background-color: var(--color-primary);
+    color: black;
+  }
+
+  .btn-success {
+    background-color: var(--color-success);
+    color: white;
+  }
+
+  .btn-success:hover {
+    background-color: var(--color-primary);
+  }
+
+  .btn-warning {
+    background-color: var(--color-warning);
+    color: black;
+  }
+
+  .btn-warning:hover {
+    background-color: var(--color-accent);
+  }
+}
