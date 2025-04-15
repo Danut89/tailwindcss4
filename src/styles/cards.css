@@ -57,3 +57,44 @@
     }
   }
   
+  /* Experience Card Styles */
+
+  @layer components {
+    .education-card {
+      background-color: var(--color-glass);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 198, 255, 0.04);
+    }
+  
+    .education-card:hover {
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.1);
+      border-color: var(--color-primary);
+    }
+  
+    .education-title {
+      @apply text-lg font-semibold text-primary;
+    }
+  
+    .education-subtitle {
+      @apply text-sm italic text-muted;
+    }
+  
+    .education-date {
+      @apply text-xs text-muted mt-2;
+    }
+  
+    .education-detail {
+      @apply text-sm text-muted flex gap-2;
+    }
+  }
+
+
+
+  
+
+ 
+    

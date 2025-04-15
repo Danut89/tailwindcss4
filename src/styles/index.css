@@ -54,19 +54,65 @@ html {
     position: relative;
     z-index: 0;
   }
-
+  
   .glow-ring::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: radial-gradient(ellipse at center, var(--color-primary) 0%, transparent 70%);
-    opacity: 0.15;
-    filter: blur(40px);
+    background: radial-gradient(ellipse at center, var(--color-primary) 0%, transparent 80%);
+    opacity: 0.08; /* Softer glow */
+    filter: blur(60px);
     pointer-events: none;
   }
 }
+
+@layer utilities {
+  .animated-border {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    filter: blur(14px);
+    opacity: 0.35;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 198, 255, 0.15) 0%,
+        rgba(18, 18, 18, 0.85) 80%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(0, 198, 255, 0.06),
+        rgba(255, 122, 24, 0.03)
+      );
+    background-blend-mode: overlay, normal;
+    animation: animated-border-glow 8s ease-in-out infinite;
+  }
+  
+  
+
+  @keyframes animated-border-glow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
 
 /* -------------------------------
 🔧 Custom Utility Classes
