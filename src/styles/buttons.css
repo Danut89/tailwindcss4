@@ -18,19 +18,14 @@
     --color-warning: #FFD166;       /* Highlights, alerts */
   }
 
+  /*buttons style*/
+
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg px-5 py-2 text-base tracking-tight shadow-sm;
   }
 
-  .btn-primary {
-    background-color: var(--color-deep);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-primary);
-  }
+  
 
   .btn-secondary {
     background-color: var(--color-accent);
@@ -41,16 +36,7 @@
     background-color: var(--color-warning);
   }
 
-  .btn-outline {
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-    background-color: transparent;
-  }
 
-  .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: white;
-  }
 
   .btn-glass {
     background-color: var(--color-glass);
@@ -80,4 +66,48 @@
   .btn-warning:hover {
     background-color: var(--color-accent);
   }
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-br from-primary via-deep to-primary shadow-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 18px rgba(0, 198, 255, 0.3);
+}
+
+.btn-outline {
+  @apply relative inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg border border-primary text-primary bg-transparent overflow-hidden transition-all duration-300 shadow-sm;
+  color: var(--color-primary); /* Set default text color */
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-outline > * {
+  position: relative;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.btn-outline:hover > * {
+  color: white; /* Change text color on hover */
+  transition: color 0.3s ease;
+}
+
+.btn-outline:hover {
+  box-shadow: 0 4px 14px rgba(0, 198, 255, 0.2);
 }

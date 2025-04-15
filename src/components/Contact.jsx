@@ -75,16 +75,15 @@ const Contact = () => {
             whileTap={{ scale: 0.97 }}
             type="submit"
             aria-label="Send contact message"
-            className="bg-deep hover:bg-primary text-white font-semibold px-6 py-3 rounded-xl shadow-md "
+            className="btn-outline"
           >
-            🚀 Send Message
+            <span>🚀 Send Message</span>
           </motion.button>
         </motion.form>
       </div>
     </section>
-
-    
   );
 };
+
 
 export default Contact;

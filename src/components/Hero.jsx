@@ -30,7 +30,7 @@ const Hero = () => {
               whileTap={{ scale: 0.97 }}
               href="#projects"
               aria-label="View my projects"
-              className="btn btn-primary text-sm sm:text-base"
+              className="btn btn-primary "
             >
               🌐 View Projects
             </motion.a>
@@ -39,9 +39,9 @@ const Hero = () => {
               whileTap={{ scale: 0.97 }}
               href="#contact"
               aria-label="Contact me"
-              className="btn btn-outline text-sm sm:text-base hover:bg-primary/10 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+              className="btn btn-outline"
             >
-              📬 Contact Me
+              <span>📬 Contact Me</span>
             </motion.a>
           </div>
         </motion.div>
