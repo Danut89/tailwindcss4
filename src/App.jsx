@@ -22,6 +22,7 @@ function App() {
       <Projects />
       <Divider />
       <Experience />
+      <Divider />
       <BannerCTA />
       <Divider />
       <Contact />

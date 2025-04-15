@@ -111,3 +111,7 @@
 .btn-outline:hover {
   box-shadow: 0 4px 14px rgba(0, 198, 255, 0.2);
 }
+
+.btn-hero {
+  @apply px-6 py-3 text-sm sm:text-lg font-semibold rounded-xl shadow-md;
+}
