@@ -1,12 +1,18 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaFileAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  FileText,
+  ArrowUpCircle
+} from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border py-10 px-6 text-muted text-sm font-body">
+    <footer className="bg-background border-t border-border py-10 px-6 text-sm font-body">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-        
+
         {/* 📋 Left: Copyright */}
         <p className="text-muted">
           &copy; {new Date().getFullYear()} Danut Grigore. All rights reserved.
@@ -14,16 +20,15 @@ const Footer = () => {
 
         {/* 🌐 Right: Links & Socials */}
         <div className="flex flex-wrap justify-center md:justify-end gap-6 items-center text-sm">
-          
+
           {/* Resume */}
           <motion.a
             whileHover={{ scale: 1.1 }}
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 hover:text-primary transition"
+            href="/Danut-Grigore-Resume.pdf"
+            download
+            className="flex items-center gap-2 text-muted hover:text-primary transition"
           >
-            <FaFileAlt className="text-base" />
+            <FileText className="w-4 h-4" />
             Resume
           </motion.a>
 
@@ -31,9 +36,9 @@ const Footer = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             href="mailto:voicuion488@gmail.com"
-            className="flex items-center gap-1 hover:text-primary transition"
+            className="flex items-center gap-2 text-muted hover:text-primary transition"
           >
-            <FaEnvelope className="text-base" />
+            <Mail className="w-4 h-4" />
             Email
           </motion.a>
 
@@ -44,9 +49,9 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-primary text-xl transition"
+            className="text-muted hover:text-primary transition"
           >
-            <FaGithub />
+            <Github className="w-5 h-5" />
           </motion.a>
 
           {/* LinkedIn */}
@@ -56,18 +61,18 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-primary text-xl transition"
+            className="text-muted hover:text-primary transition"
           >
-            <FaLinkedin />
+            <Linkedin className="w-5 h-5" />
           </motion.a>
 
           {/* Back to top */}
           <motion.a
             whileHover={{ scale: 1.1 }}
             href="#top"
-            className="flex items-center gap-1 hover:text-primary transition"
+            className="flex items-center gap-2 text-muted hover:text-primary transition"
           >
-            <FaArrowUp className="text-base" />
+            <ArrowUpCircle className="w-4 h-4" />
             Top
           </motion.a>
         </div>
@@ -77,4 +82,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
