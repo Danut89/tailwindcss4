@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Globe, Mail } from 'lucide-react';
 import profileImage from '../assets/profile7.jpg';
 
 const Hero = () => {
@@ -9,7 +10,7 @@ const Hero = () => {
 
         {/* 👋 Text Block */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
@@ -18,7 +19,7 @@ const Hero = () => {
             I’m <span className="text-accent">Danut Grigore</span>
           </h1>
 
-          <p className="mt-6 text-lg max-w-xl text-muted leading-relaxed">
+          <p className="mt-6 text-lg max-w-xl text-muted leading-relaxed fade-in">
             I build accessible, user-friendly interfaces that balance performance and aesthetics. <br />
             Let’s transform ideas into seamless digital experiences.
           </p>
@@ -30,18 +31,21 @@ const Hero = () => {
               whileTap={{ scale: 0.97 }}
               href="#projects"
               aria-label="View my projects"
-              className="btn btn-primary btn-hero"
+              className="btn btn-primary btn-hero shadow-glow"
             >
-              🌐 View Projects
+              <Globe className="w-5 h-5 align-middle" />
+              <span>View Projects</span>
             </motion.a>
+
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               href="#contact"
               aria-label="Contact me"
-              className="btn btn-outline btn-hero"
+              className="btn btn-outline btn-hero ring-glow"
             >
-              <span>📬 Contact Me</span>
+              <Mail className="w-5 h-5 align-middle" />
+              <span>Contact Me</span>
             </motion.a>
           </div>
         </motion.div>
@@ -54,7 +58,7 @@ const Hero = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-16 md:mt-0"
         >
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 bg-glass backdrop-blur-md rounded-2xl shadow-xl p-2 border border-accent-peach/30">
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 glass-effect rounded-2xl p-2 border border-accent-peach/30 glow-ring">
             <motion.img
               src={profileImage}
               alt="Danut Grigore"
@@ -72,8 +76,13 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, repeat: Infinity, repeatType: 'reverse' }}
-          className="text-muted-gray text-sm tracking-wide"
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
+          className="text-muted text-sm tracking-wide fade-in"
         >
           ↓ Scroll to explore
         </motion.div>

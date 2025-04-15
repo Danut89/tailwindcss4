@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Rocket, Boxes, CheckCircle } from 'lucide-react';
 
 import project1Img from '../assets/project-images/project1.webp';
 import project2Img from '../assets/project-images/project2.webp';
@@ -67,19 +68,15 @@ const techColors = {
 
 const Projects = () => {
   const [openProjects, setOpenProjects] = useState({});
-  const cardVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   return (
     <section id="projects" className="bg-background py-24 px-6 text-text font-body">
       <div className="max-w-7xl mx-auto">
-       
         {/* 🔸 Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary flex items-center justify-center gap-3">
-            <span>📦</span> Projects
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gradient flex items-center justify-center gap-3">
+            <Boxes className="w-7 h-7 text-accent" />
+            Projects
           </h2>
           <p className="text-muted text-base mt-4 max-w-2xl mx-auto">
             A collection of professional and personal projects crafted with care — built using modern tech stacks and a focus on elegant, user-centered experiences.
@@ -87,144 +84,99 @@ const Projects = () => {
         </div>
 
         {/* 🔸 Projects Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: 40 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.1, duration: 0.5 },
-            },
-          }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-12"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => {
             const isOpen = openProjects[index];
             return (
-              <div key={index} className="flex flex-col items-center">
-                {/* Title Outside Card */}
-                <div className="text-center mb-3">
-                  <h3 className="text-xl sm:text-xl font-heading font-semibold text-primary">
-                    {project.title}
-                  </h3>
-                  <div className="w-10 h-[2px] bg-secondary mt-1 mx-auto rounded-full" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-effect border border-glass rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden h-48">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
-                {/* Project Card */}
-                <motion.div
-                  variants={cardVariant}
-                  className="card-glass border border-secondary/20 rounded-3xl hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300 flex flex-col overflow-hidden"
-                >
-                  {/* Image */}
-                  <div className="relative px-6 pt-4">
-                    <div className="rounded-xl overflow-hidden shadow-md">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover rounded-xl"
-                      />
-                    </div>
+                {/* Content */}
+                <div className="p-6 flex flex-col h-full">
+                  <h3 className="text-lg font-heading font-semibold text-primary mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted mb-4">{project.description}</p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-3 py-[5px] text-xs font-medium rounded-full border border-border backdrop-blur-sm ${techColors[tag] || 'bg-gray-100 text-gray-700'}`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6 pt-4 flex flex-col flex-grow">
-                    {/* Tags */}
-                    <div className="flex flex-wrap items-center gap-2 mb-4 text-xs">
-                      {project.tags.map((tag, idx) => (
-                        <motion.span
-                          key={idx}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: idx * 0.05 }}
-                          className={`px-3 py-[6px] font-medium rounded-full border border-border shadow-sm backdrop-blur-sm hover:scale-[1.03] transition ${techColors[tag] || 'bg-gray-100 text-gray-700'}`}
-                        >
-                          {tag}
-                        </motion.span>
-                      ))}
-                    </div>
+                  {/* Toggle */}
+                  <button
+                    onClick={() =>
+                      setOpenProjects((prev) => ({
+                        ...prev,
+                        [index]: !prev[index],
+                      }))
+                    }
+                    className="text-sm text-primary hover:text-accent transition mb-3"
+                  >
+                    {isOpen ? 'Hide Details ▲' : 'Show Details ▼'}
+                  </button>
 
-                    {/* Description */}
-                    <p className="text-sm text-muted mb-3 leading-relaxed">{project.description}</p>
-
-                    {/* Details Toggle */}
-                    <div className="relative w-full">
-                      <button
-                        onClick={() =>
-                          setOpenProjects((prev) => ({
-                            ...prev,
-                            [index]: !prev[index],
-                          }))
-                        }
-                        className="text-sm text-primary hover:text-secondary hover:underline underline-offset-4 transition duration-150 mb-3"
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-2 text-sm text-muted mb-4"
                       >
-                        {isOpen ? 'Hide Details ▲' : 'Show Details ▼'}
-                      </button>
+                        {project.details.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-accent mt-1" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
 
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.ul
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden space-y-2 text-sm text-muted mb-4 leading-relaxed"
-                          >
-                            {project.details.map((item, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <span className="mt-1 text-accent">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="w-4 h-4"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M16.704 5.293a1 1 0 010 1.414L8.414 15 3.293 9.879a1 1 0 111.414-1.414L8.414 12.172l7.293-7.293a1 1 0 011.414 0z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                </span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="mt-auto flex flex-col sm:flex-row gap-3 pt-2">
-                      <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.97 }}
-                        href={project.demo}
-                        className="btn btn-primary text-sm"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                       <span> 🚀 Live Demo</span>
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.97 }}
-                        href={project.code}
-                        className="btn btn-outline text-sm"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                       <span> 🐙 GitHub</span>
-                      </motion.a>
-                    </div>
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary flex items-center gap-2 text-sm"
+                    >
+                      <Rocket className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                    <a className="btn btn-outline text-sm">
+                      <span className="flex items-center gap-2">
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </span>
+                    </a>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
-
-/* Define custom properties using @theme block */
+/* -------------------------------
+🎨 Theme Variables (Tailwind 4.1+)
+-------------------------------- */
 @theme {
-  /* 🎨 Custom Font Stack */
+  /* 🔤 Font Stack */
   --font-heading: 'IBM Plex Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
-  /* 🌈 Color Palette from Your Screenshot */
+  /* 🌈 Color Palette */
   --color-primary: #00C6FF;       /* Headers, highlights */
   --color-deep: #0072FF;          /* Buttons, links */
   --color-accent: #FF7A18;        /* CTAs, hover */
@@ -17,14 +18,19 @@
   --color-muted: #888888;         /* Secondary text */
   --color-success: #00C48C;       /* Status, badges */
   --color-warning: #FFD166;       /* Highlights, alerts */
-  --color-surface-alt: #1A1A1A; /* Alternative background */
+  --color-surface-alt: #1A1A1A;   /* Alternative background */
 }
 
-
+/* -------------------------------
+🧭 Global HTML & Body Styles
+-------------------------------- */
 html {
   scroll-behavior: smooth;
 }
 
+/* -------------------------------
+🎬 Keyframes & Animation Classes
+-------------------------------- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -40,8 +46,9 @@ html {
   animation: fadeIn 0.4s ease-out;
 }
 
-/* Graident Background  for BannerCTA*/
-
+/* -------------------------------
+🎨 Gradient Background Utility (e.g., Banner CTA)
+-------------------------------- */
 @layer utilities {
   .glow-ring {
     position: relative;
@@ -61,4 +68,65 @@ html {
   }
 }
 
-  
+/* -------------------------------
+🔧 Custom Utility Classes
+-------------------------------- */
+@layer utilities {
+  /* ✨ General Glow Effects */
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.15);
+  }
+
+  .ring-glow {
+    box-shadow: 0 0 8px rgba(0, 198, 255, 0.25);
+  }
+
+  .inner-glow {
+    box-shadow: inset 0 0 10px rgba(0, 198, 255, 0.12);
+  }
+
+  /* 🌈 Text & Background Effects */
+  .text-gradient {
+    background: linear-gradient(to right, var(--color-primary), var(--color-deep));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-effect {
+    background-color: var(--color-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* 🎬 Entry Animation (Utility Version) */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 🖱️ Hover Underline for Links */
+  .hover-underline::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+
+  .hover-underline:hover::after {
+    transform: scaleX(1);
+  }
+}

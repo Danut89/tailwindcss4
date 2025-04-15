@@ -78,4 +78,24 @@ git clone https://github.com/yourusername/your-portfolio.git
 cd your-portfolio
 npm install
 npm run dev
+```
+---
+
+## 🗂 Folder Structure
+
+src/
+├── assets/                  # Static files & images
+├── components/              # React components (Hero, Projects, BannerCTA, etc.)
+├── styles/                  # Tailwind + custom CSS layers
+├── App.jsx                  # Main app wrapper
+├── main.js                  # Entry point
+
+---
+
+## 🤝 Let's Connect
+If you're interested in working together or have a project in mind, feel free to reach out.
+📬 Contact Me | 💼 LinkedIn
+
+### 📄 License
+This project is licensed under the MIT License.
 

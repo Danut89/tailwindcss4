@@ -1,85 +1,103 @@
 @import "tailwindcss";
 
-/* Define custom properties using @theme block */
+/* -------------------------------
+🌐 Theme Variables (Tailwind 4.1)
+-------------------------------- */
 @theme {
-    /* 🎨 Custom Font Stack */
-    --font-heading: 'IBM Plex Sans', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  
-    /* 🌈 Color Palette from Your Screenshot */
-    --color-primary: #00C6FF;       /* Headers, highlights */
-    --color-deep: #0072FF;          /* Buttons, links */
-    --color-accent: #FF7A18;        /* CTAs, hover */
-    --color-background: #121212;    /* Base background */
-    --color-glass: #1E1E1E88;       /* Modals, blur layers */
-    --color-text: #EAEAEA;          /* Headings, content */
-    --color-muted: #888888;         /* Secondary text */
-    --color-success: #00C48C;       /* Status, badges */
-    --color-warning: #FFD166;       /* Highlights, alerts */
-  }
+  /* 🎨 Font Stack */
+  --font-heading: 'IBM Plex Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
-  /*buttons style*/
+  /* 🌈 Color Palette */
+  --color-primary: #00C6FF;       /* Headers, highlights */
+  --color-deep: #0072FF;          /* Buttons, links */
+  --color-accent: #FF7A18;        /* CTAs, hover */
+  --color-background: #121212;    /* Base background */
+  --color-glass: #1E1E1E88;       /* Modals, blur layers */
+  --color-text: #EAEAEA;          /* Headings, content */
+  --color-muted: #888888;         /* Secondary text */
+  --color-success: #00C48C;       /* Status, badges */
+  --color-warning: #FFD166;       /* Highlights, alerts */
+}
 
+
+
+/* -------------------------------
+🖼️ Base Icon Styling in Buttons
+-------------------------------- */
+.btn svg {
+  width: 1.25rem; /* ~20px */
+  height: 1.25rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin-top: -1px; /* Fine-tune vertical alignment */
+}
+
+/* -------------------------------
+🎛️ Core Button Base Style
+-------------------------------- */
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg px-5 py-2 text-base tracking-tight shadow-sm;
   }
 
-  
-
+  /* 🔸 Secondary Button */
   .btn-secondary {
     background-color: var(--color-accent);
     color: black;
   }
-
   .btn-secondary:hover {
     background-color: var(--color-warning);
   }
 
-
-
+  /* 💎 Glass Button */
   .btn-glass {
     background-color: var(--color-glass);
     backdrop-filter: blur(12px);
     color: var(--color-text-light);
   }
-
   .btn-glass:hover {
     background-color: var(--color-primary);
     color: black;
   }
 
+  /* ✅ Success Button */
   .btn-success {
     background-color: var(--color-success);
     color: white;
   }
-
   .btn-success:hover {
     background-color: var(--color-primary);
   }
 
+  /* ⚠️ Warning Button */
   .btn-warning {
     background-color: var(--color-warning);
     color: black;
   }
-
   .btn-warning:hover {
     background-color: var(--color-accent);
   }
 }
 
+/* -------------------------------
+🔥 Primary Gradient Button
+-------------------------------- */
 .btn-primary {
   @apply inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-br from-primary via-deep to-primary shadow-lg transition-all duration-300;
 }
-
 .btn-primary:hover {
   filter: brightness(1.1);
   box-shadow: 0 6px 18px rgba(0, 198, 255, 0.3);
 }
 
+/* -------------------------------
+📬 Outline Button with Fill Hover
+-------------------------------- */
 .btn-outline {
-  @apply relative inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg border border-primary text-primary bg-transparent overflow-hidden transition-all duration-300 shadow-sm;
-  color: var(--color-primary); /* Set default text color */
+  @apply relative inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg border border-primary bg-transparent overflow-hidden transition-all duration-300 shadow-sm;
+  /* Don't need "text-primary" here AND color override below */
+  color: var(--color-primary);
 }
 
 .btn-outline::before {
@@ -97,21 +115,37 @@
   transform: scaleX(1);
 }
 
+/* Text inside the button */
 .btn-outline > * {
   position: relative;
   z-index: 10;
   transition: color 0.3s ease;
 }
 
+/* 🔥 This is the key fix */
 .btn-outline:hover > * {
-  color: white; /* Change text color on hover */
-  transition: color 0.3s ease;
+  color: white !important; /* force override if theme cascades */
 }
 
 .btn-outline:hover {
   box-shadow: 0 4px 14px rgba(0, 198, 255, 0.2);
 }
 
+
+/* -------------------------------
+🦸 Hero-Only Button Sizing
+-------------------------------- */
 .btn-hero {
   @apply px-6 py-3 text-sm sm:text-lg font-semibold rounded-xl shadow-md;
 }
+
+
+
+
+
+
+
+
+
+
+
