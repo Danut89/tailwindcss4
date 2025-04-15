@@ -82,6 +82,8 @@ const Contact = () => {
         </motion.form>
       </div>
     </section>
+
+    
   );
 };
 

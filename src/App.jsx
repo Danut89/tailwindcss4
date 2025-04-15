@@ -6,6 +6,7 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Divider from './components/Divider'
+import BannerCTA from './components/BannerCTA'
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Projects />
       <Divider />
       <Experience />
+      <BannerCTA />
       <Divider />
       <Contact />
       <Footer />
