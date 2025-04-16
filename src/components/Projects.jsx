@@ -78,10 +78,14 @@ const Projects = () => {
             <Boxes className="w-7 h-7 text-accent" />
             Projects
           </h2>
+          
           <p className="text-muted text-base mt-4 max-w-2xl mx-auto">
             A collection of professional and personal projects crafted with care — built using modern tech stacks and a focus on elegant, user-centered experiences.
           </p>
         </div>
+
+        
+
 
         {/* 🔸 Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -94,7 +98,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-effect border border-glass rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
+                className="bg-[var(--color-surface-alt)] ring-1 ring-white/5 hover:ring-1 hover:ring-primary/40 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden h-48">
@@ -165,7 +169,7 @@ const Projects = () => {
                       <Rocket className="w-4 h-4" />
                       Live Demo
                     </a>
-                    <a className="btn btn-outline text-sm">
+                    <a className="btn btn-outline text-sm ring-glow">
                       <span className="flex items-center gap-2">
                         <Github className="w-4 h-4" />
                         GitHub

@@ -78,6 +78,13 @@
   .btn-warning:hover {
     background-color: var(--color-accent);
   }
+  
+}
+
+@layer components {
+  .btn-nav {
+    @apply border-primary text-primary hover:bg-primary hover:text-black px-4 py-1.5 rounded-lg transition font-medium;
+  }
 }
 
 /* -------------------------------
@@ -94,42 +101,45 @@
 /* -------------------------------
 📬 Outline Button with Fill Hover
 -------------------------------- */
-.btn-outline {
-  @apply relative inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-4 py-2 font-semibold rounded-lg border border-primary bg-transparent overflow-hidden transition-all duration-300 shadow-sm;
-  /* Don't need "text-primary" here AND color override below */
-  color: var(--color-primary);
+@layer components {
+  .btn-outline {
+    @apply relative inline-flex items-center justify-center gap-2 text-xs sm:text-sm px-5 py-2 font-semibold rounded-lg border border-primary bg-transparent overflow-hidden transition-all duration-300;
+    color: var(--color-primary);
+  }
+
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--color-primary), var(--color-deep));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+    z-index: 0;
+  }
+
+  .btn-outline:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Inner content sits on top */
+  .btn-outline > * {
+    position: relative;
+    z-index: 10;
+    transition: color 0.3s ease;
+  }
+
+  .btn-outline:hover > * {
+    color: white !important;
+  }
+
+  /* Optional subtle glow on hover */
+  .btn-outline:hover {
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.3);
+  }
 }
 
-.btn-outline::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-  z-index: 0;
-}
 
-.btn-outline:hover::before {
-  transform: scaleX(1);
-}
-
-/* Text inside the button */
-.btn-outline > * {
-  position: relative;
-  z-index: 10;
-  transition: color 0.3s ease;
-}
-
-/* 🔥 This is the key fix */
-.btn-outline:hover > * {
-  color: white !important; /* force override if theme cascades */
-}
-
-.btn-outline:hover {
-  box-shadow: 0 4px 14px rgba(0, 198, 255, 0.2);
-}
 
 
 /* -------------------------------

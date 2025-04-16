@@ -18,7 +18,7 @@ const fadeIn = {
 
 const About = () => {
   return (
-    <section id="about" className="bg-background text-text px-6 md:px-12 lg:px-20 py-24 font-body">
+    <section id="about" className="bg-[var(--color-surface-alt)] text-text px-6 md:px-12 lg:px-20 py-24 font-body">
       <div className="max-w-6xl mx-auto">
 
         {/* 🔹 Title */}
@@ -47,7 +47,7 @@ const About = () => {
 
           {/* 💬 About Text */}
           <motion.div
-            className="glass-effect p-6 md:p-8 rounded-xl hover:shadow-glow transition duration-300"
+            className="bg-background ring-1 ring-white/5 backdrop-blur-md shadow-lg  p-6 md:p-8 rounded-xl hover:shadow-glow"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -70,12 +70,13 @@ const About = () => {
 
           {/* 🛠️ Skills */}
           <motion.div
-            className="glass-effect p-6 md:p-8 rounded-xl hover:shadow-glow transition duration-300"
+            className="bg-background  shadow-lg   p-6 md:p-8 rounded-xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             custom={2}
             variants={fadeIn}
+            
           >
             <Skills />
           </motion.div>

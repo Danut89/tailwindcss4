@@ -16,7 +16,7 @@ const Hero = () => {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className="flex flex-col items-center md:items-start"
     >
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight text-primary">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight text-gradient">
         Hello, <br />
         I’m <span className="text-accent">Danut Grigore</span>
       </h1>
@@ -58,11 +58,11 @@ const Hero = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
       viewport={{ once: true }}
-      className="flex justify-center mt-12 md:mt-0 relative"
+      className="flex justify-center mt-12 md:mt-0 relative hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
     >
       {/* Blurred Glow Behind */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-72 h-72 rounded-full bg-gradient-to-br from-primary/30 to-accent-peach/20 blur-3xl opacity-40"></div>
+        <div className="w-72 h-72 rounded-full"></div>
       </div>
 
       <div className="relative w-56 h-56 sm:w-64 sm:h-64 glass-effect rounded-2xl p-2 border border-accent-peach/30 glow-ring z-10">

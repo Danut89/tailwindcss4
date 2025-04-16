@@ -4,22 +4,25 @@
 🎨 Theme Variables (Tailwind 4.1+)
 -------------------------------- */
 @theme {
-  /* 🔤 Font Stack */
+  /* 🅰 Font Stack */
   --font-heading: 'IBM Plex Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
-  /* 🌈 Color Palette */
-  --color-primary: #00C6FF;       /* Headers, highlights */
-  --color-deep: #0072FF;          /* Buttons, links */
-  --color-accent: #FF7A18;        /* CTAs, hover */
-  --color-background: #121212;    /* Base background */
-  --color-glass: #1E1E1E88;       /* Modals, blur layers */
-  --color-text: #EAEAEA;          /* Headings, content */
-  --color-muted: #888888;         /* Secondary text */
-  --color-success: #00C48C;       /* Status, badges */
-  --color-warning: #FFD166;       /* Highlights, alerts */
-  --color-surface-alt: #1A1A1A;   /* Alternative background */
+  /* 🎨 Color Palette */
+  --color-primary: #00C6FF;          /* Main highlights / headings */
+  --color-deep: #0072FF;             /* Buttons, links */
+  --color-accent: #FF7A18;           /* CTAs, hovers */
+  --color-background: #121212;       /* Base background */
+  --color-surface-alt: #1A1A1A;      /* Alternating sections */
+  --color-surface-glow: #181824;     /* Optional accent section bg */
+  --color-glass: #1E1E1E88;          /* Modals, blurred layers */
+
+  --color-text: #EAEAEA;             /* Primary text */
+  --color-muted: #888888;            /* Subtext */
+  --color-success: #00C48C;          /* Success tags */
+  --color-warning: #FFD166;          /* Warnings, alerts */
 }
+
 
 /* -------------------------------
 🧭 Global HTML & Body Styles
@@ -60,13 +63,20 @@ html {
     position: absolute;
     inset: 0;
     z-index: -1;
-    border-radius: inherit;
-    background: radial-gradient(ellipse at center, var(--color-primary) 0%, transparent 80%);
-    opacity: 0.08; /* Softer glow */
-    filter: blur(60px);
+    background: radial-gradient(circle at center, var(--color-primary) 0%, transparent 70%);
+    opacity: 0.07;
+    filter: blur(100px);
     pointer-events: none;
   }
 }
+
+
+@layer utilities {
+  .icon-link:hover svg {
+    filter: drop-shadow(0 0 6px var(--color-primary));
+  }
+}
+
 
 @layer utilities {
   .animated-border {

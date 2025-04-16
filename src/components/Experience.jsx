@@ -59,7 +59,7 @@ const Card = ({ entry, index, isOpen, toggle }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: index * 0.15 }}
-    className="education-card"
+    className="education-card hover:ring-1 hover:ring-primary/40"
   >
     <div className="flex justify-between items-start gap-3">
       <div>
@@ -102,7 +102,7 @@ const Experience = () => {
   const [openExp, setOpenExp] = useState(null);
 
   return (
-    <section id="experience" className="bg-background py-24 px-6 text-text font-body">
+    <section id="experience" className="bg-[var(--color-surface-alt)]  py-24 px-6 text-text font-body">
       <div className="max-w-7xl mx-auto space-y-20">
 
         {/* 🧠 Section Header */}
@@ -120,7 +120,7 @@ const Experience = () => {
         <div className="mt-4 w-16 h-1 bg-gradient-to-r from-primary via-accent to-primary mx-auto rounded-full shadow-md" />
 
         {/* 🎓 Education */}
-        <div className="space-y-8">
+        <div className="space-y-8 ">
           <h3 className="text-2xl font-bold text-primary flex items-center gap-2">
             <GraduationCap className="w-5 h-5 text-primary" />
             Education

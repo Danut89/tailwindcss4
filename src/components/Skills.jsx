@@ -28,7 +28,7 @@ const Skills = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="card-glass rounded-2xl p-6 border border-secondary/20 backdrop-blur-md  shadow-lg w-full max-w-2xl mx-auto"
+      className="rounded-2xl p-6 backdrop-blur-md  shadow-lg w-full max-w-2xl mx-auto bg-gradient-to-b from-surface-alt/90 to-surface-alt hover:ring-1 hover:ring-accent/40"
     >
       <h3 className="text-lg font-heading font-semibold text-secondary mb-4">
         Tech Stack
