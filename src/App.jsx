@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Divider from './components/Divider'
 import BannerCTA from './components/BannerCTA'
+import ScrollDown from './components/ScroolDown'  
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Hero />
       <Divider />
+      <ScrollDown />
       <About />
       <Divider />
       <Projects />
