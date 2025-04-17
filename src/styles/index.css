@@ -197,14 +197,24 @@ html {
 
 @layer components {
   .swiper-pagination {
-    bottom: -40px !important;
+    bottom: -60px !important;
     text-align: center;
-    color: var(--color-accent) !important;
-  }
+    }
+
+    /* Make Swiper dots match your brand */
+    .swiper-pagination-bullet {
+      background-color: var(--color-muted);
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+    .swiper-pagination-bullet-active {
+      background-color: var(--color-accent);
+      opacity: 1;
+    }
+
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: var(--color-accent);
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
@@ -215,5 +225,14 @@ html {
   .swiper-button-prev:hover {
     transform: translateY(-50%) scale(1.2);
   }
+
+  .swiper-slide-active {
+    transform: scale(1.03) !important;
+    z-index: 10;
+  }
 }
+
+
+
+
 
