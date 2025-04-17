@@ -44,6 +44,7 @@ const Navbar = () => {
             href="#cta"
             className="btn btn-primary btn-nav shadow-glow text-sm"
           >
+            
             Hire Me
           </a>
         </div>

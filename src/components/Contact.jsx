@@ -24,7 +24,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/* ✨ New Modern Contact Box */}
+        {/* ✨ Modern Contact Box */}
         <motion.form
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

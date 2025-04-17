@@ -98,14 +98,15 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[var(--color-surface-alt)] ring-1 ring-white/5 hover:ring-1 hover:ring-primary/40 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
+                className="bg-[var(--color-surface-alt)] ring-1 ring-white/5 hover:ring-1 hover:ring-primary/40 rounded-2xl py-4   overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 transition duration-300"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden h-48">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-scale-down bg-surface-alt"
+
                   />
                 </div>
 
@@ -134,7 +135,7 @@ const Projects = () => {
                         [index]: !prev[index],
                       }))
                     }
-                    className="text-sm text-primary hover:text-accent transition mb-3"
+                    className="text-sm text-primary mt-3 hover:text-accent transition mb-3"
                   >
                     {isOpen ? 'Hide Details ▲' : 'Show Details ▼'}
                   </button>

@@ -26,7 +26,7 @@ const BannerCTA = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-3xl md:text-4xl font-heading font-bold text-primary"
+          className="text-3xl md:text-4xl font-heading font-bold text-gradient"
         >
           Let’s Build Something Amazing Together
         </motion.h2>
