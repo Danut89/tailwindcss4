@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Rocket, Boxes, CheckCircle } from 'lucide-react';
+import Divider from './Divider';
 
 import project1Img from '../assets/project-images/project1.webp';
 import project2Img from '../assets/project-images/project2.webp';
@@ -183,9 +184,12 @@ const Projects = () => {
           })}
         </div>
       </div>
+      <Divider />
     </section>
+   
   );
 };
+
 
 export default Projects;
 

@@ -14,7 +14,7 @@ const ScrollDown = ({ href = "#about", label = "Scroll to explore" }) => {
         repeatType: 'reverse',
         ease: 'easeInOut',
       }}
-      className="flex flex-col items-center justify-center text-muted hover:text-primary text-sm transition duration-300"
+      className="flex flex-col items-center justify-center text-muted hover:text-accent text-sm transition duration-300"
       aria-label={label}
     >
       <ChevronsDown className="w-5 h-5 mb-1" />

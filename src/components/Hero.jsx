@@ -16,9 +16,9 @@ const Hero = () => {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className="flex flex-col items-center md:items-start"
     >
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight text-gradient">
-        Hello, <br />
-        I’m <span className="text-accent">Danut Grigore</span>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight">
+       <span className="text-gradient"> Hello, <br />
+        I’m </span><span className="text-accent ">Danut Grigore</span>
       </h1>
 
       <p className="mt-6 text-base sm:text-lg max-w-xl text-muted leading-relaxed fade-in">

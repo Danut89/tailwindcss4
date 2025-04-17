@@ -23,7 +23,7 @@ function App() {
       <ScrollDown />
       <About />
       <Divider />
-      <ProjectsCarousel />
+      <Projects />
       <Experience />
       <Divider />
       <BannerCTA />
