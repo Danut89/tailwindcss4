@@ -203,12 +203,12 @@ html {
 
     /* Make Swiper dots match your brand */
     .swiper-pagination-bullet {
-      background-color: var(--color-muted);
+      background-color: var(--color-deep) !important;
       opacity: 0.5;
       transition: opacity 0.3s;
     }
     .swiper-pagination-bullet-active {
-      background-color: var(--color-accent);
+      background-color: var(--color-deep) !important;
       opacity: 1;
     }
 

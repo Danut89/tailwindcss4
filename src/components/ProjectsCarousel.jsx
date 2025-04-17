@@ -112,35 +112,34 @@ const Projects = () => {
         </div>
 
         <div className="relative">
-          <Swiper
-            effect="coverflow"
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            slidesPerView={1}
-            coverflowEffect={{
-                rotate: 30,         // ← Adds angled tilt to the sides
-                stretch: 0,
-                depth: 200,         // ← Increases perspective depth
-                modifier: 1.5,      // ← Balances spacing and scale
-                slideShadows: true, // ← Optional: adds subtle shadows for depth
-              }}
-              
-            pagination={{ el: '.swiper-pagination', clickable: true }}
-            navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-            breakpoints={{
-              768: { slidesPerView: 1.2 },
-              1024: { slidesPerView: 1.5 },
-            }}
-            modules={[Pagination, Navigation, EffectCoverflow]}
-            className="projects-swiper pb-20"
-          >
-            {projects.map((project, index) => (
-              <SwiperSlide key={index} className="flex justify-center">
-                <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="w-full max-w-md flex flex-col justify-between bg-[var(--color-surface-alt)] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5 transition duration-300"
-                >
+        <Swiper
+  effect="coverflow"
+  grabCursor={true}
+  centeredSlides={true}
+  loop={true}
+  slidesPerView={1}
+  coverflowEffect={{
+    rotate: 0,
+    stretch: 0,
+    depth: 150,
+    modifier: 2.5,
+    slideShadows: false,
+  }}
+  pagination={{ el: '.swiper-pagination', clickable: true }}
+  navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+  breakpoints={{
+    768: { slidesPerView: 1.4 },
+    1024: { slidesPerView: 2 },
+  }}
+  modules={[Pagination, Navigation, EffectCoverflow]}
+  className="projects-swiper pb-20"
+>
+  {projects.map((project, index) => (
+    <SwiperSlide key={index} className="!px-4">
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="rounded-2xl shadow-xl ring-1 ring-white/5 bg-[var(--color-surface-alt)] p-6 max-w-md mx-auto min-h-[520px] flex flex-col justify-between"
+      >
                   <div className="h-48 overflow-hidden bg-surface-alt p-3 flex items-center justify-center">
                     <img
                       src={project.image}
