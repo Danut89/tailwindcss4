@@ -171,7 +171,9 @@ const Projects = () => {
                       <Rocket className="w-4 h-4" />
                       Live Demo
                     </a>
-                    <a className="btn btn-outline text-sm ring-glow">
+                    <a className="btn btn-outline text-sm ring-glow" href={project.code}
+                        target="_blank">
+                      
                       <span className="flex items-center gap-2">
                         <Github className="w-4 h-4" />
                         GitHub
