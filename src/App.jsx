@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Divider from './components/Divider'
 import BannerCTA from './components/BannerCTA'
 import ScrollDown from './components/ScroolDown'  
+import Carousel from './components/Carousel'
 
 
 
